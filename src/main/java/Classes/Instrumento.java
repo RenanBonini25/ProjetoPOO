@@ -20,7 +20,7 @@ public abstract class Instrumento {
         this.quantidade = quantidade;
     }
     
-    public abstract String definirTipoInstr();
+    public abstract double aplicarDesconto(int qtd, double total);
 
     public int getId() {
         return id;

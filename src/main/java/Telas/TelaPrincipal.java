@@ -11,6 +11,7 @@ import javax.swing.JInternalFrame;
 public class TelaPrincipal extends javax.swing.JFrame {
 
     private CadastrarCliente cadastrarCliente = null;
+    private ConsultarCliente consultarCliente = null;
 
     public TelaPrincipal() {
         initComponents();
@@ -150,7 +151,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void itemConsultarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemConsultarClienteActionPerformed
-        // TODO add your handling code here:
+        if (consultarCliente == null || !consultarCliente.isDisplayable()) {
+            consultarCliente = new ConsultarCliente();
+            desktop.add(consultarCliente);
+            this.openFrameInCenter(consultarCliente);
+        }
+        consultarCliente.toFront();
     }//GEN-LAST:event_itemConsultarClienteActionPerformed
 
     private void menuSairMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_menuSairMenuSelected
@@ -239,5 +245,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     public void setCadastrarCliente(CadastrarCliente cadastrarCliente) {
         this.cadastrarCliente = cadastrarCliente;
+    }
+    
+    public ConsultarCliente getConsultarCliente() {
+        return consultarCliente;
+    }
+
+    public void setConsultarCliente(ConsultarCliente consultarCliente) {
+        this.consultarCliente = consultarCliente;
     }
 }

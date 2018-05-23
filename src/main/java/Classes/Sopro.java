@@ -18,8 +18,11 @@ public class Sopro extends Instrumento {
     }
 
     @Override
-    public String definirTipoInstr() {
-        return "sopro";
+    public double aplicarDesconto(int qtd, double total) {
+        if (qtd > 2) {
+            total = ((total/100) * 12) - 10;
+        }
+        return total;
     }
 
     public String getMaterial() {

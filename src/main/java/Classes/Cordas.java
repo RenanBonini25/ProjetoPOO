@@ -1,5 +1,7 @@
 package Classes;
 
+import Servicos.ServicoInstrumento;
+
 public class Cordas extends Instrumento {
 
     private String qtdCordas;
@@ -20,8 +22,11 @@ public class Cordas extends Instrumento {
     }
 
     @Override
-    public String definirTipoInstr() {
-        return "cordas";
+    public double aplicarDesconto(int qtd, double total) {
+        if (qtd > 3) {
+            total = (total/100) * 20;
+        }
+        return total;
     }
 
     public String getQtdCordas() {
