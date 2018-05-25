@@ -13,8 +13,8 @@ public class Cordas extends Instrumento {
     }
 
     public Cordas(String qtdCordas, String tipoBraco, String tipoCorpo, String origem,
-            String nome, String cor, String marca, double preco, int quantidade) {
-        super(nome, cor, marca, preco, quantidade);
+            String nome, String cor, String marca, double preco, int quantidade, String tipo) {
+        super(nome, cor, marca, preco, quantidade, tipo);
         this.qtdCordas = qtdCordas;
         this.tipoBraco = tipoBraco;
         this.tipoCorpo = tipoCorpo;

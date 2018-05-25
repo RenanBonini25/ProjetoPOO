@@ -3,16 +3,16 @@ package Classes;
 public class Percussao extends Instrumento {
 
     private String tipoMadeira;
-    private int qtdPratos;
+    private String qtdPratos;
     private String dimensaoCaixa;
     private String dimensaoToms;
 
     public Percussao() {
     }
 
-    public Percussao(String tipoMadeira, int qtdPratos, String dimensaoCaixa, String dimensaoToms,
-            String nome, String cor, String marca, double preco, int quantidade) {
-        super(nome, cor, marca, preco, quantidade);
+    public Percussao(String tipoMadeira, String qtdPratos, String dimensaoCaixa, String dimensaoToms,
+            String nome, String cor, String marca, double preco, int quantidade, String tipo) {
+        super(nome, cor, marca, preco, quantidade, tipo);
         this.tipoMadeira = tipoMadeira;
         this.qtdPratos = qtdPratos;
         this.dimensaoCaixa = dimensaoCaixa;
@@ -35,11 +35,11 @@ public class Percussao extends Instrumento {
         this.tipoMadeira = tipoMadeira;
     }
 
-    public int getQtdPratos() {
+    public String getQtdPratos() {
         return qtdPratos;
     }
 
-    public void setQtdPratos(int qtdPratos) {
+    public void setQtdPratos(String qtdPratos) {
         this.qtdPratos = qtdPratos;
     }
 

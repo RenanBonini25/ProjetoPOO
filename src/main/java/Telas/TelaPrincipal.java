@@ -12,6 +12,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private CadastrarCliente cadastrarCliente = null;
     private ConsultarCliente consultarCliente = null;
+    private CadastrarInstrumento cadastrarInstrumento = null;
+    private ConsultarInstrumento consultarInstrumento = null;
 
     public TelaPrincipal() {
         initComponents();
@@ -31,8 +33,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         itemConsultarCliente = new javax.swing.JMenuItem();
         menuInstrumentos = new javax.swing.JMenu();
         itemCadastrarCordas = new javax.swing.JMenuItem();
-        itemCadastrarPercussao = new javax.swing.JMenuItem();
-        itemCadastrarSopro = new javax.swing.JMenuItem();
         itemConsultarInstrumento = new javax.swing.JMenuItem();
         menuVendas = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -81,19 +81,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuInstrumentos.setText("Instrumentos");
 
         itemCadastrarCordas.setIcon(new javax.swing.ImageIcon("Z:\\Projetos\\Sonata2\\src\\main\\java\\Imagens\\guitarra.png")); // NOI18N
-        itemCadastrarCordas.setText("Cadastrar Instrumento (Cordas)");
+        itemCadastrarCordas.setText("Cadastrar Instrumento");
+        itemCadastrarCordas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemCadastrarCordasActionPerformed(evt);
+            }
+        });
         menuInstrumentos.add(itemCadastrarCordas);
-
-        itemCadastrarPercussao.setIcon(new javax.swing.ImageIcon("Z:\\Projetos\\Sonata2\\src\\main\\java\\Imagens\\drum.png")); // NOI18N
-        itemCadastrarPercussao.setText("Cadastrar Instrumento (Percussão)");
-        menuInstrumentos.add(itemCadastrarPercussao);
-
-        itemCadastrarSopro.setIcon(new javax.swing.ImageIcon("Z:\\Projetos\\Sonata2\\src\\main\\java\\Imagens\\saxophone.png")); // NOI18N
-        itemCadastrarSopro.setText("Cadastrar Instrumento (Sopro)");
-        menuInstrumentos.add(itemCadastrarSopro);
 
         itemConsultarInstrumento.setIcon(new javax.swing.ImageIcon("Z:\\Projetos\\Sonata2\\src\\main\\java\\Imagens\\consultarInstrumento.png")); // NOI18N
         itemConsultarInstrumento.setText("Consultar Instrumento");
+        itemConsultarInstrumento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemConsultarInstrumentoActionPerformed(evt);
+            }
+        });
         menuInstrumentos.add(itemConsultarInstrumento);
 
         barraMenu.add(menuInstrumentos);
@@ -180,6 +182,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cadastrarCliente.toFront();
     }//GEN-LAST:event_itemCadastrarClienteActionPerformed
 
+    private void itemCadastrarCordasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCadastrarCordasActionPerformed
+        if (cadastrarInstrumento == null || !cadastrarInstrumento.isDisplayable()) {
+            cadastrarInstrumento = new CadastrarInstrumento();
+            desktop.add(cadastrarInstrumento);
+            this.openFrameInCenter(cadastrarInstrumento);
+        }
+        cadastrarInstrumento.toFront();
+    }//GEN-LAST:event_itemCadastrarCordasActionPerformed
+
+    private void itemConsultarInstrumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemConsultarInstrumentoActionPerformed
+        if (consultarInstrumento == null || !consultarInstrumento.isDisplayable()) {
+            consultarInstrumento = new ConsultarInstrumento();
+            desktop.add(consultarInstrumento);
+            this.openFrameInCenter(consultarInstrumento);
+        }
+        consultarInstrumento.toFront();
+    }//GEN-LAST:event_itemConsultarInstrumentoActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -227,8 +247,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane desktop;
     private javax.swing.JMenuItem itemCadastrarCliente;
     private javax.swing.JMenuItem itemCadastrarCordas;
-    private javax.swing.JMenuItem itemCadastrarPercussao;
-    private javax.swing.JMenuItem itemCadastrarSopro;
     private javax.swing.JMenuItem itemConsultarCliente;
     private javax.swing.JMenuItem itemConsultarInstrumento;
     private javax.swing.JMenuItem jMenuItem1;
@@ -253,5 +271,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     public void setConsultarCliente(ConsultarCliente consultarCliente) {
         this.consultarCliente = consultarCliente;
+    }
+    
+    public ConsultarInstrumento getConsultarProduto() {
+        return consultarInstrumento;
+    }
+    
+    public void setConsultarProduto (ConsultarInstrumento consultarProduto) {
+        this.consultarInstrumento = consultarProduto;
     }
 }

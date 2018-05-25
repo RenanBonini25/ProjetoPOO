@@ -10,8 +10,8 @@ public class Sopro extends Instrumento {
     }
 
     public Sopro(String material, String acabamento, String afinacao, String nome,
-            String cor, String marca, double preco, int quantidade) {
-        super(nome, cor, marca, preco, quantidade);
+            String cor, String marca, double preco, int quantidade, String tipo) {
+        super(nome, cor, marca, preco, quantidade, tipo);
         this.material = material;
         this.acabamento = acabamento;
         this.afinacao = afinacao;

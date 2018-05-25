@@ -8,16 +8,18 @@ public abstract class Instrumento {
     private String marca;
     private double preco;
     private int quantidade;
+    private String tipo;
 
     public Instrumento() {
     }
 
-    public Instrumento(String nome, String cor, String marca, double preco, int quantidade) {
+    public Instrumento(String nome, String cor, String marca, double preco, int quantidade, String tipo) {
         this.nome = nome;
         this.cor = cor;
         this.marca = marca;
         this.preco = preco;
         this.quantidade = quantidade;
+        this.tipo = tipo;
     }
     
     public abstract double aplicarDesconto(int qtd, double total);
@@ -68,6 +70,14 @@ public abstract class Instrumento {
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
 }
