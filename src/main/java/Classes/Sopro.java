@@ -20,7 +20,7 @@ public class Sopro extends Instrumento {
     @Override
     public double aplicarDesconto(int qtd, double total) {
         if (qtd > 2) {
-            total = ((total/100) * 12) - 10;
+            total = total * 0.90;
         }
         return total;
     }

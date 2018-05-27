@@ -255,11 +255,11 @@ public class Vendas extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Id", "Instrumento", "Quantidade", "Preço", "Subtotal"
+                "Id", "Instrumento", "Quantidade", "Preço", "Subtotal", "Desconto"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -543,17 +543,22 @@ public class Vendas extends javax.swing.JInternalFrame {
                 }
 
                 //insere os dados do instrumento na tabela do carrinho
-                Object[] rowObj = new Object[5];
+                Object[] rowObj = new Object[6];
                 double subtotal = instrumento.getPreco() * qtdeInstrumento;
+                double subtotalTemp = subtotal;
+                subtotal = instrumento.aplicarDesconto(qtdeInstrumento, subtotal);
+                double desconto = ServicoVenda.calcularDesconto(subtotalTemp, subtotal);
                 //converte o preco do instrumento (float) em moeda (R$)
                 NumberFormat formatadorReal = NumberFormat.getCurrencyInstance();
                 String precoInstrumento = formatadorReal.format(instrumento.getPreco());
                 String valorSubtotal = formatadorReal.format(subtotal);
+                String valorDesconto = formatadorReal.format(desconto);
                 rowObj[0] = instrumento.getId();
                 rowObj[1] = instrumento.getNome();
                 rowObj[2] = qtdeInstrumento;
                 rowObj[3] = precoInstrumento;
                 rowObj[4] = valorSubtotal;
+                rowObj[5] = valorDesconto;
                 tabelaCarrinhoModel.addRow(rowObj);
 
                 //solicita ao ServicoVenda a atualizacao do valor total da venda na tela
@@ -710,9 +715,14 @@ public class Vendas extends javax.swing.JInternalFrame {
                 if (novaQtde <= qtdeEmEstoque) {
                     tabelaCarrinhoModel.setValueAt(novaQtde, tabelaQtdAlterar, 2);
                     double subtotal = instrumento.getPreco() * novaQtde;
+                    double subtotalTemp = subtotal;
+                    subtotal = instrumento.aplicarDesconto(novaQtde, subtotal);
+                    double desconto = ServicoVenda.calcularDesconto(subtotalTemp, subtotal);
                     NumberFormat formatadorReal = NumberFormat.getCurrencyInstance();
                     String valor = formatadorReal.format(subtotal);
+                    String valorDesconto = formatadorReal.format(desconto);
                     tabelaCarrinhoModel.setValueAt(valor, tabelaQtdAlterar, 4);
+                    tabelaCarrinhoModel.setValueAt(valorDesconto, tabelaQtdAlterar, 5);
                     //solicitao ao ServicoVenda a atualizacao da label do valor total da venda
                     ServicoVenda.atualizarTotalLabel(tabelaCarrinhoModel, tabelaCarrinho, labelTotal);
                 } else {

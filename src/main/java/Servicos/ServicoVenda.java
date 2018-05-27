@@ -171,4 +171,9 @@ public class ServicoVenda {
         return troco;
     }
     
+    public static double calcularDesconto(double subTotalAntigo, double subTotalAtual) {
+        double desconto = subTotalAntigo - subTotalAtual;
+        return desconto;
+    }
+    
 }

@@ -22,7 +22,7 @@ public class Percussao extends Instrumento {
     @Override
     public double aplicarDesconto(int qtd, double total) {
         if (qtd > 2) {
-            total = (total/100) * 15;
+            total = total * 0.85;
         }
         return total;
     }

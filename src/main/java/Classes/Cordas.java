@@ -24,7 +24,7 @@ public class Cordas extends Instrumento {
     @Override
     public double aplicarDesconto(int qtd, double total) {
         if (qtd > 3) {
-            total = (total/100) * 20;
+            total = total * 0.8;
         }
         return total;
     }
