@@ -76,7 +76,7 @@ public class DAOCliente implements IDAO<Cliente> {
                 try (ResultSet resultados = stmt.executeQuery()) {
                     while (resultados.next()) {
                         Cliente cliente = new Cliente();
-                        cliente.setId(resultados.getInt("ID"));
+                        cliente.setId(resultados.getInt("ID_CLIENTE"));
                         cliente.setNome(resultados.getString("NOME"));
                         cliente.setCpf(resultados.getString("CPF"));
                         cliente.setSexo(resultados.getString("SEXO"));
@@ -116,7 +116,7 @@ public class DAOCliente implements IDAO<Cliente> {
                 try (ResultSet resultados = stmt.executeQuery()) {
                     while (resultados.next()) {
                         Cliente cliente = new Cliente();
-                        cliente.setId(resultados.getInt("ID"));
+                        cliente.setId(resultados.getInt("ID_CLIENTE"));
                         cliente.setNome(resultados.getString("NOME"));
                         cliente.setCpf(resultados.getString("CPF"));
                         cliente.setSexo(resultados.getString("SEXO"));
@@ -148,7 +148,7 @@ public class DAOCliente implements IDAO<Cliente> {
     @Override
     public void atualizar(Cliente cliente) {
         String query = "UPDATE CLIENTE SET NOME=?, CPF=?, SEXO=?, DTNASCIMENTO=?, ESTADOCIVIL=?,"
-                + "ENDERECO=?, NUMERO=?, BAIRRO=?, CIDADE=?, ESTADO=?, EMAIL=?, TELEFONE=? WHERE ID=?";
+                + "ENDERECO=?, NUMERO=?, BAIRRO=?, CIDADE=?, ESTADO=?, EMAIL=?, TELEFONE=? WHERE ID_CLIENTE=?";
         try (Connection conn = obterConexao()) {
             conn.setAutoCommit(false);
             try (PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -182,7 +182,7 @@ public class DAOCliente implements IDAO<Cliente> {
 
     @Override
     public void excluir(int id) {
-        String query = "UPDATE Cliente SET Ativo = ? WHERE(ID = ?)";
+        String query = "UPDATE Cliente SET Ativo = ? WHERE(ID_CLIENTE = ?)";
         try (Connection conn = obterConexao()) {
             try (PreparedStatement stmt = conn.prepareStatement(query)) {
                 stmt.setBoolean(1, false);
@@ -198,7 +198,7 @@ public class DAOCliente implements IDAO<Cliente> {
 
     @Override
     public Cliente obter(int id) {
-        String query = "SELECT * FROM CLIENTE WHERE ID = ? AND ATIVO = ?";
+        String query = "SELECT * FROM CLIENTE WHERE ID_CLIENTE = ? AND ATIVO = ?";
         try (Connection conn = obterConexao()) {
             conn.setAutoCommit(false);
             try (PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -207,7 +207,7 @@ public class DAOCliente implements IDAO<Cliente> {
                 try (ResultSet resultados = stmt.executeQuery()) {
                     while (resultados.next()) {
                         Cliente cliente = new Cliente();
-                        cliente.setId(resultados.getInt("ID"));
+                        cliente.setId(resultados.getInt("ID_CLIENTE"));
                         cliente.setNome(resultados.getString("NOME"));
                         cliente.setCpf(resultados.getString("CPF"));
                         cliente.setSexo(resultados.getString("SEXO"));

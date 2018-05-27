@@ -69,6 +69,7 @@ public class CadastrarInstrumento extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         comboTipo = new javax.swing.JComboBox<>();
 
+        setClosable(true);
         setTitle("Cadastrar Instrumento");
 
         panelGerais.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações Gerais"));
@@ -415,7 +416,7 @@ public class CadastrarInstrumento extends javax.swing.JInternalFrame {
             instrumento.setTipoCorpo(fieldCorpo.getText());
             instrumento.setOrigem(fieldOrigem.getText());
             try {
-                ServicoInstrumento.cadastrarInstrmento(instrumento);
+                ServicoInstrumento.cadastrarInstrumento(instrumento);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(rootPane, e.getMessage(), "ERRO",
                         JOptionPane.ERROR_MESSAGE);
@@ -439,7 +440,7 @@ public class CadastrarInstrumento extends javax.swing.JInternalFrame {
             instrumento.setDimensaoCaixa(fieldCaixa.getText());
             instrumento.setDimensaoToms(fieldToms.getText());
             try {
-                ServicoInstrumento.cadastrarInstrmento(instrumento);
+                ServicoInstrumento.cadastrarInstrumento(instrumento);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(rootPane, e.getMessage(), "ERRO",
                         JOptionPane.ERROR_MESSAGE);
@@ -462,7 +463,7 @@ public class CadastrarInstrumento extends javax.swing.JInternalFrame {
             instrumento.setAcabamento(fieldAcabamento.getText());
             instrumento.setAfinacao(fieldAfinacao.getText());
             try {
-                ServicoInstrumento.cadastrarInstrmento(instrumento);
+                ServicoInstrumento.cadastrarInstrumento(instrumento);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(rootPane, e.getMessage(), "ERRO",
                         JOptionPane.ERROR_MESSAGE);

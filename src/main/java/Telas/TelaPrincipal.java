@@ -14,6 +14,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private ConsultarCliente consultarCliente = null;
     private CadastrarInstrumento cadastrarInstrumento = null;
     private ConsultarInstrumento consultarInstrumento = null;
+    Vendas venda = null;
 
     public TelaPrincipal() {
         initComponents();
@@ -170,7 +171,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuSairMenuKeyPressed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+        if (venda == null || !venda.isDisplayable()) {
+            venda = new Vendas();
+            desktop.add(venda);
+            this.openFrameInCenter(venda);
+        }
+        venda.toFront();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void itemCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCadastrarClienteActionPerformed

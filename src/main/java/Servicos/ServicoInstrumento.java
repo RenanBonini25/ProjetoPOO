@@ -24,7 +24,7 @@ public class ServicoInstrumento {
         }
     }
 
-    public static void cadastrarInstrmento(Instrumento instrumento) {
+    public static void cadastrarInstrumento(Instrumento instrumento) {
         DAOInstrumento dao = new DAOInstrumento();
         try {
             dao.incluir(instrumento);

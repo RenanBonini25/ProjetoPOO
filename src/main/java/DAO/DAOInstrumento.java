@@ -146,7 +146,7 @@ public class DAOInstrumento implements IDAO<Instrumento> {
                     while (resultados.next()) {
                         if (resultados.getString("TIPO").equals("Cordas")) {
                             Cordas instrumento = new Cordas();
-                            instrumento.setId(resultados.getInt("ID"));
+                            instrumento.setId(resultados.getInt("ID_INSTRUMENTO"));
                             instrumento.setNome(resultados.getString("NOME"));
                             instrumento.setMarca(resultados.getString("MARCA"));
                             instrumento.setTipo(resultados.getString("TIPO"));
@@ -155,7 +155,7 @@ public class DAOInstrumento implements IDAO<Instrumento> {
                             listaInstrumentos.add(instrumento);
                         } else if (resultados.getString("TIPO").equals("Percussão")) {
                             Percussao instrumento = new Percussao();
-                            instrumento.setId(resultados.getInt("ID"));
+                            instrumento.setId(resultados.getInt("ID_INSTRUMENTO"));
                             instrumento.setNome(resultados.getString("NOME"));
                             instrumento.setMarca(resultados.getString("MARCA"));
                             instrumento.setTipo(resultados.getString("TIPO"));
@@ -164,7 +164,7 @@ public class DAOInstrumento implements IDAO<Instrumento> {
                             listaInstrumentos.add(instrumento);
                         } else if (resultados.getString("TIPO").equals("Sopro")) {
                             Sopro instrumento = new Sopro();
-                            instrumento.setId(resultados.getInt("ID"));
+                            instrumento.setId(resultados.getInt("ID_INSTRUMENTO"));
                             instrumento.setNome(resultados.getString("NOME"));
                             instrumento.setMarca(resultados.getString("MARCA"));
                             instrumento.setTipo(resultados.getString("TIPO"));
@@ -199,7 +199,7 @@ public class DAOInstrumento implements IDAO<Instrumento> {
                     while (resultados.next()) {
                         if (resultados.getString("TIPO").equals("Cordas")) {
                             Cordas instrumento = new Cordas();
-                            instrumento.setId(resultados.getInt("ID"));
+                            instrumento.setId(resultados.getInt("ID_INSTRUMENTO"));
                             instrumento.setNome(resultados.getString("NOME"));
                             instrumento.setMarca(resultados.getString("MARCA"));
                             instrumento.setCor(resultados.getString("COR"));
@@ -213,7 +213,7 @@ public class DAOInstrumento implements IDAO<Instrumento> {
                             listaInstrumentos.add(instrumento);
                         } else if (resultados.getString("TIPO").equals("Percussão")) {
                             Percussao instrumento = new Percussao();
-                            instrumento.setId(resultados.getInt("ID"));
+                            instrumento.setId(resultados.getInt("ID_INSTRUMENTO"));
                             instrumento.setNome(resultados.getString("NOME"));
                             instrumento.setMarca(resultados.getString("MARCA"));
                             instrumento.setCor(resultados.getString("COR"));
@@ -227,7 +227,7 @@ public class DAOInstrumento implements IDAO<Instrumento> {
                             listaInstrumentos.add(instrumento);
                         } else if (resultados.getString("TIPO").equals("Sopro")) {
                             Sopro instrumento = new Sopro();
-                            instrumento.setId(resultados.getInt("ID"));
+                            instrumento.setId(resultados.getInt("ID_INSTRUMENTO"));
                             instrumento.setNome(resultados.getString("NOME"));
                             instrumento.setMarca(resultados.getString("MARCA"));
                             instrumento.setCor(resultados.getString("COR"));
@@ -257,11 +257,11 @@ public class DAOInstrumento implements IDAO<Instrumento> {
     @Override
     public void atualizar(Instrumento instrumento) {
         String queryCordas = "UPDATE instrumento SET NOME=?, MARCA=?, COR=?, PRECO=?, QUANTIDADE=?, TIPO=?, QTDCORDAS_CORDAS=?, "
-                + "TIPOBRACO_CORDAS=?, TIPOCORPO_CORDAS=?, ORIGEM_CORDAS=? WHERE ID=?";
+                + "TIPOBRACO_CORDAS=?, TIPOCORPO_CORDAS=?, ORIGEM_CORDAS=? WHERE ID_INSTRUMENTO=?";
         String queryPercussao = "UPDATE instrumento SET NOME=?, MARCA=?, COR=?, PRECO=?, QUANTIDADE=?, TIPO=?, TIPOMADEIRA_PERCUSSAO=?, "
-                + "QTDPRATOS_PERCUSSAO=?, DIMENSAOCAIXA_PERCUSSAO=?, DIMENSAOTOMS_PERCUSSAO=? WHERE ID=?";
+                + "QTDPRATOS_PERCUSSAO=?, DIMENSAOCAIXA_PERCUSSAO=?, DIMENSAOTOMS_PERCUSSAO=? WHERE ID_INSTRUMENTO=?";
         String querySopro = "UPDATE instrumento SET NOME=?, MARCA=?, COR=?, PRECO=?, QUANTIDADE=?, TIPO=?, MATERIAL_SOPRO=?, "
-                + "ACABAMENTO_SOPRO=?, AFINACAO_SOPRO=? WHERE ID=?";
+                + "ACABAMENTO_SOPRO=?, AFINACAO_SOPRO=? WHERE ID_INSTRUMENTO=?";
 
 
         try (Connection conn = obterConexao()) {
@@ -344,7 +344,7 @@ public class DAOInstrumento implements IDAO<Instrumento> {
 
     @Override
     public void excluir(int id) {
-        String query = "UPDATE Instrumento SET Ativo = ? WHERE(ID = ?)";
+        String query = "UPDATE Instrumento SET Ativo = ? WHERE(ID_INSTRUMENTO = ?)";
         try (Connection conn = obterConexao()) {
             try (PreparedStatement stmt = conn.prepareStatement(query)) {
                 stmt.setBoolean(1, false);
@@ -360,7 +360,7 @@ public class DAOInstrumento implements IDAO<Instrumento> {
 
     @Override
     public Instrumento obter(int id) {
-        String query = "SELECT * FROM instrumento WHERE ID = ? AND ATIVO = ?";
+        String query = "SELECT * FROM instrumento WHERE ID_INSTRUMENTO = ? AND ATIVO = ?";
         try (Connection conn = obterConexao()) {
             conn.setAutoCommit(false);
             try (PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -370,7 +370,7 @@ public class DAOInstrumento implements IDAO<Instrumento> {
                     while (resultados.next()) {
                         if (resultados.getString("TIPO").equals("Cordas")) {
                             Cordas instrumento = new Cordas();
-                            instrumento.setId(resultados.getInt("ID"));
+                            instrumento.setId(resultados.getInt("ID_INSTRUMENTO"));
                             instrumento.setNome(resultados.getString("NOME"));
                             instrumento.setMarca(resultados.getString("MARCA"));
                             instrumento.setCor(resultados.getString("COR"));
@@ -383,7 +383,7 @@ public class DAOInstrumento implements IDAO<Instrumento> {
                             return instrumento;
                         } else if (resultados.getString("TIPO").equals("Percussão")) {
                             Percussao instrumento = new Percussao();
-                            instrumento.setId(resultados.getInt("ID"));
+                            instrumento.setId(resultados.getInt("ID_INSTRUMENTO"));
                             instrumento.setNome(resultados.getString("NOME"));
                             instrumento.setMarca(resultados.getString("MARCA"));
                             instrumento.setCor(resultados.getString("COR"));
@@ -396,7 +396,7 @@ public class DAOInstrumento implements IDAO<Instrumento> {
                             return instrumento;
                         } else if (resultados.getString("TIPO").equals("Sopro")) {
                             Sopro instrumento = new Sopro();
-                            instrumento.setId(resultados.getInt("ID"));
+                            instrumento.setId(resultados.getInt("ID_INSTRUMENTO"));
                             instrumento.setNome(resultados.getString("NOME"));
                             instrumento.setMarca(resultados.getString("MARCA"));
                             instrumento.setCor(resultados.getString("COR"));
