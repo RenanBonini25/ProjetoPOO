@@ -1,7 +1,5 @@
 package Classes;
 
-import Servicos.ServicoInstrumento;
-
 public class Cordas extends Instrumento {
 
     private String qtdCordas;

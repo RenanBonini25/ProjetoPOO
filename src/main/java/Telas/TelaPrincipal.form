@@ -12,7 +12,7 @@
         <Menu class="javax.swing.JMenu" name="menuClientes">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="Z:\Projetos\Sonata2\src\main\java\Imagens\Cliente.png"/>
+              <Image iconType="3" name="/Imagens/Cliente.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Clientes"/>
           </Properties>
@@ -20,7 +20,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="itemCadastrarCliente">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="Z:\Projetos\Sonata2\src\main\java\Imagens\AdicionarCliente.png"/>
+                  <Image iconType="3" name="/Imagens/AdicionarCliente.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar Cliente"/>
               </Properties>
@@ -31,7 +31,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="itemConsultarCliente">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="Z:\Projetos\Sonata2\src\main\java\Imagens\ConsultarCliente.png"/>
+                  <Image iconType="3" name="/Imagens/ConsultarCliente.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Consultar Cliente"/>
               </Properties>
@@ -44,7 +44,7 @@
         <Menu class="javax.swing.JMenu" name="menuInstrumentos">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="Z:\Projetos\Sonata2\src\main\java\Imagens\Produto.png"/>
+              <Image iconType="3" name="/Imagens/Produto.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Instrumentos"/>
           </Properties>
@@ -52,7 +52,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="itemCadastrarCordas">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="Z:\Projetos\Sonata2\src\main\java\Imagens\guitarra.png"/>
+                  <Image iconType="3" name="/Imagens/guitarra.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar Instrumento"/>
               </Properties>
@@ -63,7 +63,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="itemConsultarInstrumento">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="Z:\Projetos\Sonata2\src\main\java\Imagens\consultarInstrumento.png"/>
+                  <Image iconType="3" name="/Imagens/consultarInstrumento.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Consultar Instrumento"/>
               </Properties>
@@ -76,7 +76,7 @@
         <Menu class="javax.swing.JMenu" name="menuVendas">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="Z:\Projetos\Sonata2\src\main\java\Imagens\Venda.png"/>
+              <Image iconType="3" name="/Imagens/Venda.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Vendas"/>
           </Properties>
@@ -84,7 +84,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="Z:\Projetos\Sonata2\src\main\java\Imagens\RealizarVenda.png"/>
+                  <Image iconType="3" name="/Imagens/RealizarVenda.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Realizar Venda"/>
               </Properties>
@@ -97,7 +97,7 @@
         <Menu class="javax.swing.JMenu" name="menuSair">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="Z:\Projetos\Sonata2\src\main\java\Imagens\Sair.png"/>
+              <Image iconType="3" name="/Imagens/Sair.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Sair"/>
           </Properties>
@@ -144,6 +144,9 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JDesktopPane" name="desktop">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JDesktopPane(){&#xa;    private Image image;&#xa;    {&#xa;        try {&#xa;            image = ImageIO.read(new File(&quot;src/main/resources/Imagens/Fundo6.png&quot;));&#xa;        } catch (Exception e) {&#xa;            e.printStackTrace();&#xa;        }&#xa;    }&#xa;&#xa;    @Override&#xa;    protected void paintComponent(Graphics g) {&#xa;        super.paintComponent(g);&#xa;        g.drawImage(image, 0, 0, getWidth(), getHeight(), this);&#xa;    }&#xa;}"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">

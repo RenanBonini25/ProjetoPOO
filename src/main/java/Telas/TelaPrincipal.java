@@ -27,7 +27,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem1 = new javax.swing.JMenuItem();
-        desktop = new javax.swing.JDesktopPane();
+        desktop = new javax.swing.JDesktopPane(){
+            private Image image;
+            {
+                try {
+                    image = ImageIO.read(new File("src/main/resources/Imagens/Fundo6.png"));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
         barraMenu = new javax.swing.JMenuBar();
         menuClientes = new javax.swing.JMenu();
         itemCadastrarCliente = new javax.swing.JMenuItem();
@@ -55,10 +70,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGap(0, 412, Short.MAX_VALUE)
         );
 
-        menuClientes.setIcon(new javax.swing.ImageIcon("Z:\\Projetos\\Sonata2\\src\\main\\java\\Imagens\\Cliente.png")); // NOI18N
+        menuClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Cliente.png"))); // NOI18N
         menuClientes.setText("Clientes");
 
-        itemCadastrarCliente.setIcon(new javax.swing.ImageIcon("Z:\\Projetos\\Sonata2\\src\\main\\java\\Imagens\\AdicionarCliente.png")); // NOI18N
+        itemCadastrarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/AdicionarCliente.png"))); // NOI18N
         itemCadastrarCliente.setText("Cadastrar Cliente");
         itemCadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,7 +82,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         menuClientes.add(itemCadastrarCliente);
 
-        itemConsultarCliente.setIcon(new javax.swing.ImageIcon("Z:\\Projetos\\Sonata2\\src\\main\\java\\Imagens\\ConsultarCliente.png")); // NOI18N
+        itemConsultarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ConsultarCliente.png"))); // NOI18N
         itemConsultarCliente.setText("Consultar Cliente");
         itemConsultarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,10 +93,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         barraMenu.add(menuClientes);
 
-        menuInstrumentos.setIcon(new javax.swing.ImageIcon("Z:\\Projetos\\Sonata2\\src\\main\\java\\Imagens\\Produto.png")); // NOI18N
+        menuInstrumentos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Produto.png"))); // NOI18N
         menuInstrumentos.setText("Instrumentos");
 
-        itemCadastrarCordas.setIcon(new javax.swing.ImageIcon("Z:\\Projetos\\Sonata2\\src\\main\\java\\Imagens\\guitarra.png")); // NOI18N
+        itemCadastrarCordas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/guitarra.png"))); // NOI18N
         itemCadastrarCordas.setText("Cadastrar Instrumento");
         itemCadastrarCordas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,7 +105,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         menuInstrumentos.add(itemCadastrarCordas);
 
-        itemConsultarInstrumento.setIcon(new javax.swing.ImageIcon("Z:\\Projetos\\Sonata2\\src\\main\\java\\Imagens\\consultarInstrumento.png")); // NOI18N
+        itemConsultarInstrumento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/consultarInstrumento.png"))); // NOI18N
         itemConsultarInstrumento.setText("Consultar Instrumento");
         itemConsultarInstrumento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,10 +116,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         barraMenu.add(menuInstrumentos);
 
-        menuVendas.setIcon(new javax.swing.ImageIcon("Z:\\Projetos\\Sonata2\\src\\main\\java\\Imagens\\Venda.png")); // NOI18N
+        menuVendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Venda.png"))); // NOI18N
         menuVendas.setText("Vendas");
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon("Z:\\Projetos\\Sonata2\\src\\main\\java\\Imagens\\RealizarVenda.png")); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/RealizarVenda.png"))); // NOI18N
         jMenuItem2.setText("Realizar Venda");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +130,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         barraMenu.add(menuVendas);
 
-        menuSair.setIcon(new javax.swing.ImageIcon("Z:\\Projetos\\Sonata2\\src\\main\\java\\Imagens\\Sair.png")); // NOI18N
+        menuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Sair.png"))); // NOI18N
         menuSair.setText("Sair");
         menuSair.addMenuKeyListener(new javax.swing.event.MenuKeyListener() {
             public void menuKeyPressed(javax.swing.event.MenuKeyEvent evt) {
