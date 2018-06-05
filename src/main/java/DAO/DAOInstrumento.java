@@ -422,5 +422,20 @@ public class DAOInstrumento implements IDAO<Instrumento> {
         }
         return null;
     }
+    
+    public void atualizarQuantidade(Instrumento instrumento) {
+        String query = "UPDATE instrumento SET QUANTIDADE = ? WHERE ID_INSTRUMENTO = ?";
+        try (Connection conn = obterConexao()) {
+            try (PreparedStatement stmt = conn.prepareStatement(query)) {
+                stmt.setInt(1, instrumento.getQuantidade());
+                stmt.setInt(2, instrumento.getId());
+                stmt.executeUpdate();
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DAOCliente.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 }

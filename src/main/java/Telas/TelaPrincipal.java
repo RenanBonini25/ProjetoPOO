@@ -9,11 +9,14 @@ import javax.imageio.ImageIO;
 import javax.swing.JInternalFrame;
 
 public class TelaPrincipal extends javax.swing.JFrame {
+    
+    
 
     private CadastrarCliente cadastrarCliente = null;
     private ConsultarCliente consultarCliente = null;
     private CadastrarInstrumento cadastrarInstrumento = null;
     private ConsultarInstrumento consultarInstrumento = null;
+    private Estoque_Consultar estoqueConsultar = null;
     Vendas venda = null;
 
     public TelaPrincipal() {
@@ -50,6 +53,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuInstrumentos = new javax.swing.JMenu();
         itemCadastrarCordas = new javax.swing.JMenuItem();
         itemConsultarInstrumento = new javax.swing.JMenuItem();
+        itemEstoque = new javax.swing.JMenuItem();
         menuVendas = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         menuSair = new javax.swing.JMenu();
@@ -95,6 +99,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         menuInstrumentos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Produto.png"))); // NOI18N
         menuInstrumentos.setText("Instrumentos");
+        menuInstrumentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuInstrumentosActionPerformed(evt);
+            }
+        });
 
         itemCadastrarCordas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/guitarra.png"))); // NOI18N
         itemCadastrarCordas.setText("Cadastrar Instrumento");
@@ -113,6 +122,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         menuInstrumentos.add(itemConsultarInstrumento);
+
+        itemEstoque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/box.png"))); // NOI18N
+        itemEstoque.setText("Gerenciar Estoque");
+        itemEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemEstoqueActionPerformed(evt);
+            }
+        });
+        menuInstrumentos.add(itemEstoque);
 
         barraMenu.add(menuInstrumentos);
 
@@ -221,6 +239,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
         consultarInstrumento.toFront();
     }//GEN-LAST:event_itemConsultarInstrumentoActionPerformed
 
+    private void itemEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemEstoqueActionPerformed
+        if (getEstoqueConsultar() == null || !estoqueConsultar.isDisplayable()) {
+            setEstoqueConsultar(new Estoque_Consultar());
+            desktop.add(getEstoqueConsultar());
+            this.openFrameInCenter(getEstoqueConsultar());
+        }
+        consultarCliente.toFront();
+    }//GEN-LAST:event_itemEstoqueActionPerformed
+
+    private void menuInstrumentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuInstrumentosActionPerformed
+        
+    }//GEN-LAST:event_menuInstrumentosActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -270,6 +301,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemCadastrarCordas;
     private javax.swing.JMenuItem itemConsultarCliente;
     private javax.swing.JMenuItem itemConsultarInstrumento;
+    private javax.swing.JMenuItem itemEstoque;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu menuClientes;
@@ -300,5 +332,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     
     public void setConsultarProduto (ConsultarInstrumento consultarProduto) {
         this.consultarInstrumento = consultarProduto;
+    }
+
+    public Estoque_Consultar getEstoqueConsultar() {
+        return estoqueConsultar;
+    }
+
+    public void setEstoqueConsultar(Estoque_Consultar estoqueConsultar) {
+        this.estoqueConsultar = estoqueConsultar;
     }
 }

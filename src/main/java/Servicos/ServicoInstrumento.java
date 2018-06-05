@@ -33,6 +33,15 @@ public class ServicoInstrumento {
         }
     }
     
+    public static void atualizarQuantidade(Instrumento instrumento) {
+        DAOInstrumento dao = new DAOInstrumento();
+        try {
+            dao.atualizarQuantidade(instrumento);
+        } catch (Exception ex) {
+            
+        }
+    }
+    
     public static List<Instrumento> procurarInstrumento(String valor)
             throws InstrumentoException, DataSourceException {
         DAOInstrumento dao = new DAOInstrumento();

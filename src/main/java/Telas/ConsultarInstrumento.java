@@ -228,6 +228,7 @@ public class ConsultarInstrumento extends javax.swing.JInternalFrame {
                     + "exibir os detalhes deste instrumento.",
                     "Erro ao abrir detalhe", JOptionPane.ERROR_MESSAGE);
         }
+        
     }//GEN-LAST:event_btAlterarActionPerformed
 
     //botao que consulta o instrumento pelo nome
